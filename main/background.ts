@@ -15,8 +15,8 @@ if (isProd) {
   await app.whenReady()
 
   const mainWindow = createWindow('main', {
-    width: 1000,
-    height: 600,
+    width: 1024,
+    height: 960,
     // webPreferences: {
     //   preload: path.join(__dirname, 'preload.js'),
     // },
@@ -35,6 +35,6 @@ app.on('window-all-closed', () => {
   app.quit()
 })
 
-// ipcMain.on('message', async (event, arg) => {
-//   event.reply('message', `${arg} World!`)
-// })
+ipcMain.on('message', async (event, arg) => {
+  event.reply('message', `${arg} World!`)
+})
