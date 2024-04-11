@@ -2,12 +2,15 @@ import { Stats } from "./stats"
 
 export class Item{
     constructor(
-        name_in
+        name_in,
+        is_use_in = false,
+        is_equip_in = false,
+        is_treasure_in = false,
     ){
         this.name = name_in;
-        this.is_use = false;
-        this.is_equip = false;
-        this.is_treasure = false;
+        this.is_use = is_use_in;
+        this.is_equip = is_equip_in;
+        this.is_treasure = is_treasure_in;
 
         this.stats = new Stats();
     }

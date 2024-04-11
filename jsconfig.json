@@ -17,6 +17,7 @@
     "baseUrl": "./renderer/",
 		"paths": {
 			"@contexts/*": ["_contexts/*"],
+			"@classes/*": ["_classes/*"],
 			"@app/*": ["pages/_app.js"],
 		}
   },
