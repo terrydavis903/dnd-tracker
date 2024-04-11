@@ -39,6 +39,7 @@ export class Character{
         
         this.abilities = [...abilities_in, ...class_in.abilities, ...race_in.abilities]; // should be of type abilities
         this.buffs = []; // should be of type abilities
+        this.debuffs = []; // should be of type abilities
 
         this.personality_traits = [];
         this.stress_meter = 0;
@@ -65,7 +66,9 @@ export class Character{
 
     useItem(item_in){
         let item_ind = this.inventory.indexOf((e)=> e.name == item_in);
-        this.stats.applyItem(item_in)
+        this.stats.applyItem(this.inventory[item_ind])
+
+        this.inventory.splice(item_ind, 1);
     }
 
     //////////////////////////////////////////
@@ -83,7 +86,7 @@ export class Character{
     //////////////////////////////////////////
     // PERMIT
 
-    addPermit(permit_in){
+    addPermit(permit_in){ // takes in str
         this.permits.push(permit_in)
     }
 
@@ -95,7 +98,7 @@ export class Character{
     //////////////////////////////////////////
     // ITEM MANAGEMENT
 
-    addItem(item_in){
+    addItem(item_in){ // takes in item
         this.inventory.push(item_in);
     }
 
@@ -118,6 +121,27 @@ export class Character{
     // ABILITY MANAGEMENT
 
     learnAbility(ability_in){
-        this.abilities
+        this.abilities.push(ability_in);
+    }
+
+    forgetAbility(ability_in){
+        let ability_index = this.abilities.findIndex(a => a.name == ability_in.name);
+        this.abilities.splice(ability_index, 1);
+    }
+
+    addBuff(buff_in){
+        this.buffs.push(buff_in);
+    }
+    deleteBuff(buff_in){
+        let ability_index = this.buffs.findIndex(a => a.name == buff_in.name);
+        this.buffs.splice(ability_index, 1);
+    }
+
+    addDebuff(debuff_in){
+        this.debuffs.push(debuff_in);
+    }
+    deleteDebuff(debuff_in){
+        let ability_index = this.debuffs.findIndex(a => a.name == debuff_in.name);
+        this.debuffs.splice(ability_index, 1);
     }
 }
