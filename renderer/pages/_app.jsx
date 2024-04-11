@@ -12,7 +12,6 @@ function MyApp({ Component, pageProps }) {
   const [monsterList, setMonsterList] = useState();
   const [character, setCharacter] = useState(0);
 
-
   return(
     <CharacterCtx.Provider value={{character, setCharacter}}>
       <MonsterListCtx.Provider value={{monsterList, setMonsterList}}>

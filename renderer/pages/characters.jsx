@@ -1,17 +1,17 @@
 import CharactersCtx from "@contexts/characterListCtx";
 import CharacterCtx from "@contexts/characterCtx";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function CharactersPage(){
     const {characterList, setCharacterList} = useContext(CharactersCtx);
-    const {character, setCharacter} = useContext(CharacterCtx);
+    const [character, setCharacter] = useState();
 
     useEffect(()=>{
 
     },[])
 
-    function newCharacter(){
-
+    function makeNewCharacter(){
+        setCharacterList(cl => [...cl, ])
     }
 
 
