@@ -4,7 +4,7 @@ import '../styles/globals.css'
 
 import CharacterListCtx from "@contexts/characterListCtx";
 import MonsterListCtx from "@contexts/monsterListCtx";
-import CharacterCtx from "@contexts/characterCtx";
+import PlayerCtx from '@contexts/playerCtx';
 import RaceListCtx from '@contexts/racesCtx';
 import ClassListCtx from '@contexts/classesCtx';
 
@@ -14,7 +14,7 @@ function MyApp({ Component, pageProps }) {
   const [monsterList, setMonsterList] = useState();
   const [raceList, setRaceList] = useState();
   const [classList, setClassList] = useState();
-  const [character, setCharacter] = useState(0);
+  const [player, setPlayer] = useState(0);
 
   useEffect(()=>{
     window.ipc.on("characters", async (event, arg) => {
@@ -48,13 +48,13 @@ function MyApp({ Component, pageProps }) {
   return(
     <RaceListCtx.Provider value={{raceList, setRaceList}}>
       <ClassListCtx.Provider value={{classList, setClassList}}>
-        <CharacterCtx.Provider value={{character, setCharacter}}>
+        <PlayerCtx.Provider value={{player, setPlayer}}>
           <MonsterListCtx.Provider value={{monsterList, setMonsterList}}>
             <CharacterListCtx.Provider value={{characterList, setCharacterList}}>
                 <Component {...pageProps} />
             </CharacterListCtx.Provider>
           </MonsterListCtx.Provider>
-        </CharacterCtx.Provider>
+        </PlayerCtx.Provider>
       </ClassListCtx.Provider>
     </RaceListCtx.Provider>
   )
