@@ -1,5 +1,5 @@
-import CharactersCtx from "@contexts/characterListCtx";
-import CharacterCtx from "@contexts/characterCtx";
+import CharactersCtx from "../_contexts/characterListCtx";
+import CharacterCtx from "../_contexts/characterCtx";
 import { useEffect, useState } from "react";
 
 export default function CharactersPage(){
@@ -11,7 +11,7 @@ export default function CharactersPage(){
     },[])
 
     function makeNewCharacter(){
-        setCharacterList(cl => [...cl, ])
+        setCharacterList(cl => [...cl,character ])
     }
 
 

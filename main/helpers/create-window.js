@@ -7,9 +7,9 @@ import {
 import Store from 'electron-store'
 
 export const createWindow = (
-  windowName: string,
-  options: BrowserWindowConstructorOptions
-): BrowserWindow => {
+  windowName,
+  options
+) => {
   const key = 'window-state'
   const name = `window-state-${windowName}`
   const store = new Store<Rectangle>({ name })

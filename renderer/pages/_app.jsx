@@ -2,18 +2,14 @@ import React, { useState } from 'react'
 
 import '../styles/globals.css'
 
-import CharacterListCtx from "@contexts/characterListCtx";
-import MonsterListCtx from "@contexts/monsterListCtx";
-import PlayerCtx from '@contexts/playerCtx';
-import RaceListCtx from '@contexts/racesCtx';
-import ClassListCtx from '@contexts/classesCtx';
+import CharactersCtx from "../_contexts/characterListCtx";
+import MonsterListCtx from "../_contexts/monsterListCtx";
+import PlayerCtx from "../_contexts/currPlayerCtx";
 
 function MyApp({ Component, pageProps }) {
 
   const [characterList, setCharacterList] = useState();
   const [monsterList, setMonsterList] = useState();
-  const [raceList, setRaceList] = useState();
-  const [classList, setClassList] = useState();
   const [player, setPlayer] = useState(0);
 
   useEffect(()=>{
@@ -46,17 +42,13 @@ function MyApp({ Component, pageProps }) {
   },[])
 
   return(
-    <RaceListCtx.Provider value={{raceList, setRaceList}}>
-      <ClassListCtx.Provider value={{classList, setClassList}}>
-        <PlayerCtx.Provider value={{player, setPlayer}}>
-          <MonsterListCtx.Provider value={{monsterList, setMonsterList}}>
-            <CharacterListCtx.Provider value={{characterList, setCharacterList}}>
-                <Component {...pageProps} />
-            </CharacterListCtx.Provider>
-          </MonsterListCtx.Provider>
-        </PlayerCtx.Provider>
-      </ClassListCtx.Provider>
-    </RaceListCtx.Provider>
+    <PlayerCtx.Provider value={{player, setPlayer}}>
+      <MonsterListCtx.Provider value={{monsterList, setMonsterList}}>
+        <CharactersCtx.Provider value={{characterList, setCharacterList}}>
+            <Component {...pageProps} />
+        </CharactersCtx.Provider>
+      </MonsterListCtx.Provider>
+    </PlayerCtx.Provider>
   )
 }
 

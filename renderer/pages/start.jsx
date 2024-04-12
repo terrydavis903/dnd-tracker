@@ -1,9 +1,9 @@
 import { useContext, useEffect } from "react";
 
-import CharactersCtx from "@contexts/characterListCtx";
-import MonstersCtx from "@contexts/monsterListCtx";
+import CharactersCtx from "../_contexts/characterListCtx";
+import MonstersCtx from "../_contexts/monsterListCtx";
 
-import PlayerCtx from "@contexts/playerCtx";
+import PlayerCtx from "../_contexts/playerCtx";
 
 export default function StartPage(){
     const {characterList} = useContext(CharactersCtx);
