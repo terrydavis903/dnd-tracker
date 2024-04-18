@@ -16,35 +16,37 @@ export function StatEditModal(props){
     }
     
     function openModal() {
+        console.log("opening modal")
         setIsOpen(true)
     }
 
     return (
-        <div className='w-full h-full relative'>
-            <button
-                type="button"
-                onClick={openModal}
-                className="relative text-sm font-medium text-white w-full h-full"
-            >
+        <div className='w-full h-full'>
                 {
                     (props.base != undefined) ?
                     (
-                        <div className='relative h-full w-full'>
-                            <div className='absolute bg-gray-600 top-0 border-2 h-1/3'>{(props.value > 0 ? "+" : "") + props.value}</div>
-                            <div className='absolute bg-gray-600 top-0 border-2 h-1/3'>{props.name}</div>
-                            <div className='absolute bg-gray-600 top-0 border-2 h-1/3 rounded-full'>{props.base}</div>
-                        </div>
+                        <button
+                            onClick={openModal}
+                            className="text-sm font-medium text-white w-full h-full border-2"
+                        >
+                            {/* <div className='bg-gray-600 h-[66%]'>{(props.value > 0 ? "+" : "") + props.value}</div> */}
+                            {/* <div className='bg-gray-600 h-1/4'>{props.name}</div>
+                            <div className='bg-gray-600 h-1/4 rounded-full'>{props.base}</div> */}
+                        </button>
                     ) :
                     (
-                        <div className='absolute h-2/3 w-full top-0 border-2 border-color-blue-500'>
-                            <div className='absolute bg-gray-600 border-2 w-full h-1/2 top-0'>{props.name}</div>
-                            <div className='absolute bg-gray-600 border-2 w-full h-1/2 bottom-0'>{(props.value > 0 ? "+" : "") + props.value}</div>
-                        </div>
+                        <button
+                            onClick={openModal}
+                            className="text-sm font-medium text-white w-full h-full border-2"
+                        >
+                            <div className='bg-gray-600 w-full h-60 border-2'>{props.name}</div>
+                            <div className='bg-gray-600 w-full h-60 border-2'>{(props.value > 0 ? "+" : "") + props.value}</div>
+                        </button>
                     )
                 }
-            </button>
+            
             <Transition appear show={isOpen} as={Fragment}>
-                <Dialog as="div" className="relative z-[200]" onClose={closeModal} static={true}>
+                <Dialog as="div" className="z-20" onClose={closeModal} static={true}>
                     <Transition.Child
                         as={Fragment}
                         enter="ease-out duration-300"
@@ -54,9 +56,9 @@ export function StatEditModal(props){
                         leaveFrom="opacity-100"
                         leaveTo="opacity-0"
                     >
-                    <div className="fixed inset-0 backdrop-blur" />
+                    <div className=" backdrop-blur" />
                     </Transition.Child>
-                    <div className="fixed inset-0 overflow-y-auto">
+                    <div className="overflow-y-auto">
                         <div className="flex min-h-full items-center justify-center p-4 text-center">
                         <Transition.Child
                             as={Fragment}
@@ -68,7 +70,7 @@ export function StatEditModal(props){
                             leaveTo="opacity-0 scale-95"
                         >
                             <div>
-                                <Dialog.Panel className="w-full max-w-xl rounded-2xl transform overflow-hidden backdrop-blur bg-gradient-to-t from-[#32254EB3] to-[#26232CE6] border-t-[0.5px] border-[#474747] shadow-xl">
+                                <Dialog.Panel className="w-screen max-w-xl rounded-2xl transform overflow-hidden backdrop-blur bg-gradient-to-t from-[#32254EB3] to-[#26232CE6] border-t-[0.5px] border-[#474747] shadow-xl">
                                     <div className='flex flex-col text-white w-max max-w-md h-fit text-center p-6'>
                                         <div className='text-5xl font-bold my-2 mx-auto flex'>
                                             <span className='text-transparent bg-clip-text bg-gradient-to-r from-[#16C7FF] to-[#C625FF]'> Hold on! </span>

@@ -18,7 +18,8 @@ export default function StartPage(){
     },[])
 
     return (
-        <div className="w-screen h-screen bg-[url('/images/NewUi_Character_Asset.png')] bg-contain bg-no-repeat text-sm bg-gray-800">
+        <div className="w-screen h-screen  bg-contain bg-no-repeat text-sm bg-gray-800 z-[0]">
+        {/* <div className="w-screen h-screen bg-[url('/images/NewUi_Character_Asset.png')] bg-contain bg-no-repeat text-sm bg-gray-800 z-[0]"> */}
             {/* header bar */}
             <div className="w-full flex flex-row gap-4 px-4 h-[6%]">
                 {
@@ -126,7 +127,7 @@ export default function StartPage(){
                 </div>
                 {/* right bar */}
                 <div className="border-2 w-1/6">
-
+                    
                 </div>
             </div>
         </div>
