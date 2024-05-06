@@ -35,7 +35,7 @@ export function ItemEditModal(props){
                 }
             </button>
             <Transition appear show={isOpen} as={Fragment}>
-                <Dialog as="div" className="relative z-[200]" onClose={closeModal} static={true}>
+                <Dialog as="div" className="relative z-200" onClose={closeModal} static={true}>
                     <Transition.Child
                         as={Fragment}
                         enter="ease-out duration-300"

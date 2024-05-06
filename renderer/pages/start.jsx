@@ -1,11 +1,11 @@
 import { useContext, useEffect } from "react";
 
-import CharactersCtx from "../_contexts/characterListCtx";
-import MonstersCtx from "../_contexts/monsterListCtx";
+import CharactersCtx from "../_contexts/CharactersCtx";
+import MonstersCtx from "../_contexts/MonstersCtx";
 
-import PlayerCtx from "../_contexts/currPlayerCtx";
+import PlayerCtx from "../_contexts/PlayerCtx";
 import ItemDisplayList from "_components/item_list";
-import { StatEditModal } from "_components/modals/stat_edit";
+import { StatButton } from "_components/modals/stat_edit";
 
 export default function StartPage(){
     const {characterList} = useContext(CharactersCtx);
@@ -18,8 +18,8 @@ export default function StartPage(){
     },[])
 
     return (
-        <div className="w-screen h-screen  bg-contain bg-no-repeat text-sm bg-gray-800 z-0">
-        {/* <div className="w-screen h-screen bg-[url('/images/NewUi_Character_Asset.png')] bg-contain bg-no-repeat text-sm bg-gray-800 z-[0]"> */}
+        <div className="w-screen h-screen relative bg-contain bg-no-repeat text-sm bg-gray-800 z-0">
+        
             {/* header bar */}
             <div className="w-full flex flex-row gap-4 px-4 h-[6%]">
                 {
@@ -100,28 +100,28 @@ export default function StartPage(){
                 <div className="border-2 w-1/2 pt-1">
                     <div className="border-2 h-[12%] mx-4 flex flex-row gap-1">
                         <div className="w-1/8 border-2 h-full text-center">
-                            <StatEditModal name="Dodge" value={17}/>
+                            <StatButton name="Dodge" value={17}/>
                         </div>
                         <div className="w-1/8 border-2 h-full text-center">
-                            <StatEditModal name="Speed" value={199}/>
+                            <StatButton name="Speed" value={199}/>
                         </div>
                         <div className="w-1/8 border-2 h-full text-center">
-                            <StatEditModal name="Strength" value={6915} base={19}/>
+                            <StatButton name="Strength" value={6915} base={19}/>
                         </div>
                         <div className="w-1/8 border-2 h-full text-center">
-                            <StatEditModal name="Dexterity" value={60} base={20}/>
+                            <StatButton name="Dexterity" value={60} base={20}/>
                         </div>
                         <div className="w-1/8 border-2 h-full text-center">
-                            <StatEditModal name="Constitution" value={1753} base={17}/>
+                            <StatButton name="Constitution" value={1753} base={17}/>
                         </div>
                         <div className="w-1/8 border-2 h-full text-center">
-                            <StatEditModal name="Intelligence" value={-213} base={4}/>
+                            <StatButton name="Intelligence" value={-213} base={4}/>
                         </div>
                         <div className="w-1/8 border-2 h-full text-center">
-                            <StatEditModal name="Wisdom" value={-5214} base={33}/>
+                            <StatButton name="Wisdom" value={-5214} base={33}/>
                         </div>
                         <div className="w-1/8 border-2 h-full text-center">
-                            <StatEditModal name="Charisma" value={23} base={0}/>
+                            <StatButton name="Charisma" value={23} base={0}/>
                         </div>
                     </div>
                 </div>

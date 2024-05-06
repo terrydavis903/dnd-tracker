@@ -1,4 +1,4 @@
-import CharactersCtx from "../_contexts/characterListCtx";
+import CharactersCtx from "../_contexts/CharactersCtx";
 import CharacterCtx from "../_contexts/characterCtx";
 import { useEffect, useState } from "react";
 
