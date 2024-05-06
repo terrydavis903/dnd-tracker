@@ -33,6 +33,9 @@ export class Character{
         this.stats = new Stats();
         this.stats.jsonLoad(stats_in);
 
+        this.bonus_stats = new Stats();
+        // this.bonus_stats.jsonLoad(stats_in);
+
         this.equipment = []; // should be of type items
         
         this.inventory = []; // should be of type items

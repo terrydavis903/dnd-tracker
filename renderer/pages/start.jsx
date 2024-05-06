@@ -5,13 +5,13 @@ import MonstersCtx from "../_contexts/MonstersCtx";
 
 import PlayerCtx from "../_contexts/PlayerCtx";
 import ItemDisplayList from "_components/item_list";
-import { StatButton } from "_components/modals/stat_edit";
+import { StatButton, StatModal } from "_components/modals/stat_edit";
 
 export default function StartPage(){
     const {characterList} = useContext(CharactersCtx);
     const {monsterList} = useContext(MonstersCtx);
 
-    const {player} = useContext(PlayerCtx);
+    const {player, setPlayer} = useContext(PlayerCtx);
 
     useEffect(()=>{
 
@@ -19,7 +19,7 @@ export default function StartPage(){
 
     return (
         <div className="w-screen h-screen relative bg-contain bg-no-repeat text-sm bg-gray-800 z-0">
-        
+            <StatModal />
             {/* header bar */}
             <div className="w-full flex flex-row gap-4 px-4 h-[6%]">
                 {
@@ -54,9 +54,9 @@ export default function StartPage(){
                 </div>
 
             </div>
-            <div className="w-full h-[2%] bg-gray-600">
-                
-            </div>
+
+
+            <div className="w-full h-[2%] bg-gray-600"/>
 
             {/* body interface */}
             <div className="w-full h-[92%] bg-transparent flex flex-row">
@@ -98,31 +98,65 @@ export default function StartPage(){
                 </div>
                 {/* middle bar */}
                 <div className="border-2 w-1/2 pt-1">
+                    {/* stats bar */}
                     <div className="border-2 h-[12%] mx-4 flex flex-row gap-1">
                         <div className="w-1/8 border-2 h-full text-center">
-                            <StatButton name="Dodge" value={17}/>
+                            <StatButton name="Dodge"/>
                         </div>
                         <div className="w-1/8 border-2 h-full text-center">
-                            <StatButton name="Speed" value={199}/>
+                            <StatButton name="Speed"/>
                         </div>
                         <div className="w-1/8 border-2 h-full text-center">
-                            <StatButton name="Strength" value={6915} base={19}/>
+                            <StatButton name="Strength"/>
                         </div>
                         <div className="w-1/8 border-2 h-full text-center">
-                            <StatButton name="Dexterity" value={60} base={20}/>
+                            <StatButton name="Dexterity"/>
                         </div>
                         <div className="w-1/8 border-2 h-full text-center">
-                            <StatButton name="Constitution" value={1753} base={17}/>
+                            <StatButton name="Constitution"/>
                         </div>
                         <div className="w-1/8 border-2 h-full text-center">
-                            <StatButton name="Intelligence" value={-213} base={4}/>
+                            <StatButton name="Intelligence"/>
                         </div>
                         <div className="w-1/8 border-2 h-full text-center">
-                            <StatButton name="Wisdom" value={-5214} base={33}/>
+                            <StatButton name="Wisdom"/>
                         </div>
                         <div className="w-1/8 border-2 h-full text-center">
-                            <StatButton name="Charisma" value={23} base={0}/>
+                            <StatButton name="Charisma"/>
                         </div>
+                    </div>
+
+
+                    {/* armor */}
+                    <div className="w-30">
+                        <div>{player.stats.armor}</div>
+                        <div>Armor</div>
+                    </div>
+
+                    {/* health, dice roll */}
+                    <div className="grid grow-cols-2">
+                        
+                        {/* health */}
+                        <div className="px-2 flex flex-col place-items-center">
+                            <div className="bg-gray-400 w-60">
+                                <div>{player.stats.max_hp}</div>
+                                <div>HIT POINTS MAXIMUM</div>
+                            </div>
+
+                            <div>{player.stats.current_hp}</div>
+                            <div>CURRENT HIT POINTS</div>
+
+                            <div className="flex flex-row">
+                                <div className="bg-color-green-400">GAIN</div>
+                                <div className="bg-color-red-400">LOSE</div>
+                            </div>
+                        </div>
+
+                        {/* dice roll */}
+                        <div className="px-2">
+
+                        </div>
+
                     </div>
                 </div>
                 {/* right bar */}
