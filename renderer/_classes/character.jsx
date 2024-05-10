@@ -29,6 +29,7 @@ export class Character{
         this.passive_2 = passive_2_in;
         
         this.deaths_door = 0;
+        this.deaths_save = 0;
         
         this.stats = new Stats();
         this.stats.jsonLoad(stats_in);

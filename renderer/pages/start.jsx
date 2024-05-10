@@ -6,6 +6,8 @@ import MonstersCtx from "../_contexts/MonstersCtx";
 import PlayerCtx from "../_contexts/PlayerCtx";
 import ItemDisplayList from "_components/item_list";
 import { StatButton, StatModal } from "_components/modals/stat_edit";
+import { HPButton } from "_components/_buttons/hp_button";
+import { DiceRollButton } from "_components/_buttons/dice_roll_button";
 
 export default function StartPage(){
     const {characterList} = useContext(CharactersCtx);
@@ -137,27 +139,13 @@ export default function StartPage(){
                     <div className="grid grow-cols-2">
                         
                         {/* health */}
-                        <div className="px-2 flex flex-col place-items-center">
-                            <div className="bg-gray-400 w-60">
-                                <div>{player.stats.max_hp}</div>
-                                <div>HIT POINTS MAXIMUM</div>
-                            </div>
-
-                            <div>{player.stats.current_hp}</div>
-                            <div>CURRENT HIT POINTS</div>
-
-                            <div className="flex flex-row">
-                                <div className="bg-color-green-400">GAIN</div>
-                                <div className="bg-color-red-400">LOSE</div>
-                            </div>
-                        </div>
+                        <HPButton/>
 
                         {/* dice roll */}
-                        <div className="px-2">
-
-                        </div>
-
+                        <DiceRollButton roll_value={player.stats.dice} mini_text="HIT DICE MAXIMUM" large_text="ROLLED" button_text="ROLL"/>
                     </div>
+
+                    {/* deaths door, extra rolls, accuracy, etc */}
                 </div>
                 {/* right bar */}
                 <div className="border-2 w-1/6">

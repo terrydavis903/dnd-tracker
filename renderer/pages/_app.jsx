@@ -7,8 +7,11 @@ import MonsterListCtx from "../_contexts/MonstersCtx";
 import PlayerCtx from "../_contexts/PlayerCtx";
 import StatModalCtx from '_contexts/StatModalCtx';
 import ItemModalCtx from '_contexts/ItemModalCtx';
+import DiceRollCtx from '_contexts/DiceRollCtx';
 
 function MyApp({ Component, pageProps }) {
+
+  const [diceRoll, setDiceRoll] = useState(0);
 
   const [itemModalValue, setItemModalValue] = useState(false);
   const [statModalValue, setStatModalValue] = useState(false);
@@ -37,17 +40,19 @@ function MyApp({ Component, pageProps }) {
   },[])
 
   return(
-    <StatModalCtx.Provider value={{statModalValue, setStatModalValue}}>
-      <ItemModalCtx.Provider value={{itemModalValue, setItemModalValue}}>
-        <PlayerCtx.Provider value={{player, setPlayer}}>
-          <MonsterListCtx.Provider value={{monsterList, setMonsterList}}>
-            <CharactersCtx.Provider value={{characterList, setCharacterList}}>
-              <Component {...pageProps} />
-            </CharactersCtx.Provider>
-          </MonsterListCtx.Provider>
-        </PlayerCtx.Provider>
-      </ItemModalCtx.Provider>
-    </StatModalCtx.Provider>
+    <DiceRollCtx.Provider value={{diceRoll, setDiceRoll}}>
+      <StatModalCtx.Provider value={{statModalValue, setStatModalValue}}>
+        <ItemModalCtx.Provider value={{itemModalValue, setItemModalValue}}>
+          <PlayerCtx.Provider value={{player, setPlayer}}>
+            <MonsterListCtx.Provider value={{monsterList, setMonsterList}}>
+              <CharactersCtx.Provider value={{characterList, setCharacterList}}>
+                <Component {...pageProps} />
+              </CharactersCtx.Provider>
+            </MonsterListCtx.Provider>
+          </PlayerCtx.Provider>
+        </ItemModalCtx.Provider>
+      </StatModalCtx.Provider>
+    </DiceRollCtx.Provider>
   )
 }
 
