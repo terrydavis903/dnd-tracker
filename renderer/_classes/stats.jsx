@@ -12,7 +12,9 @@ export class Stats{
         accuracy_in = 0,    
         armor_in = 0,
         gold_in = 0,
-        dice_in = 0
+        dice_in = 0,
+        deaths_door = 0,
+        deaths_save = 0,
     ){
         this.max_hp = max_hp_in;
         this.current_hp = max_hp_in;
@@ -30,6 +32,9 @@ export class Stats{
         this.armor = armor_in;
         this.gold = gold_in;
         this.dice = dice_in;
+
+        this.deaths_door = deaths_door;
+        this.deaths_save = deaths_save;
     }
 
     //////////////////////////////////////////

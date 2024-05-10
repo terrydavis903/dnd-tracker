@@ -34,15 +34,16 @@ export function StatModal(props){
                 statModalValue.length > 0 ?
                 <div className='pt-12 w-full flex flex-col place-items-center'>
                     <div className='text-xxl'>
-                    {statModalValue}
+                        {statModalValue.includes("_") ? statModalValue.split("_").join(" ") : statModalValue}
                     </div>
-
 
                     <input
                         value={statValue}
                         type="number"
                         className='w-20'
                     ></input>
+                    
+                    <div onClick={closeModal}>Save</div>
                 </div>:
                 <></>
             }

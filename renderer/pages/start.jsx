@@ -5,9 +5,10 @@ import MonstersCtx from "../_contexts/MonstersCtx";
 
 import PlayerCtx from "../_contexts/PlayerCtx";
 import ItemDisplayList from "_components/item_list";
-import { StatButton, StatModal } from "_components/modals/stat_edit";
+import { BonusStatButton, StatModal } from "_components/modals/stat_edit";
 import { HPButton } from "_components/_buttons/hp_button";
 import { DiceRollButton } from "_components/_buttons/dice_roll_button";
+import { DeathSaveButton, StaticStatButtonLower, StaticStatButtonUpper } from "_components/_buttons/stat_button";
 
 export default function StartPage(){
     const {characterList} = useContext(CharactersCtx);
@@ -103,28 +104,28 @@ export default function StartPage(){
                     {/* stats bar */}
                     <div className="border-2 h-[12%] mx-4 flex flex-row gap-1">
                         <div className="w-1/8 border-2 h-full text-center">
-                            <StatButton name="Dodge"/>
+                            <StaticStatButtonUpper name="Dodge"/>
                         </div>
                         <div className="w-1/8 border-2 h-full text-center">
-                            <StatButton name="Speed"/>
+                            <StaticStatButtonUpper name="Speed"/>
                         </div>
                         <div className="w-1/8 border-2 h-full text-center">
-                            <StatButton name="Strength"/>
+                            <BonusStatButton name="Strength"/>
                         </div>
                         <div className="w-1/8 border-2 h-full text-center">
-                            <StatButton name="Dexterity"/>
+                            <BonusStatButton name="Dexterity"/>
                         </div>
                         <div className="w-1/8 border-2 h-full text-center">
-                            <StatButton name="Constitution"/>
+                            <BonusStatButton name="Constitution"/>
                         </div>
                         <div className="w-1/8 border-2 h-full text-center">
-                            <StatButton name="Intelligence"/>
+                            <BonusStatButton name="Intelligence"/>
                         </div>
                         <div className="w-1/8 border-2 h-full text-center">
-                            <StatButton name="Wisdom"/>
+                            <BonusStatButton name="Wisdom"/>
                         </div>
                         <div className="w-1/8 border-2 h-full text-center">
-                            <StatButton name="Charisma"/>
+                            <BonusStatButton name="Charisma"/>
                         </div>
                     </div>
 
@@ -146,6 +147,14 @@ export default function StartPage(){
                     </div>
 
                     {/* deaths door, extra rolls, accuracy, etc */}
+                    <div className="flex flex-row">
+                        <DeathDoorButton/>
+                        <DeathSaveButton/>
+
+                        <DiceRollButton roll_value={0} mini_text="HIT DICE MAXIMUM" large_text="ROLLED" button_text="ROLL"/>
+                        <DiceRollButton roll_value={0} mini_text="HIT DICE MAXIMUM" large_text="ROLLED" button_text="ROLL"/>
+
+                    </div>
                 </div>
                 {/* right bar */}
                 <div className="border-2 w-1/6">
