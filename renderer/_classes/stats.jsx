@@ -33,6 +33,10 @@ export class Stats{
         this.gold = gold_in;
         this.dice = dice_in;
 
+        this.extra_dice_1 = 0;
+        this.extra_dice_2 = 0;
+
+
         this.deaths_door = deaths_door;
         this.deaths_save = deaths_save;
     }

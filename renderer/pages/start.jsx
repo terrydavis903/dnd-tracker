@@ -143,7 +143,7 @@ export default function StartPage(){
                         <HPButton/>
 
                         {/* dice roll */}
-                        <DiceRollButton roll_value={player.stats.dice} mini_text="HIT DICE MAXIMUM" large_text="ROLLED" button_text="ROLL"/>
+                        <DiceRollButton/>
                     </div>
 
                     {/* deaths door, extra rolls, accuracy, etc */}
@@ -151,8 +151,8 @@ export default function StartPage(){
                         <DeathDoorButton/>
                         <DeathSaveButton/>
 
-                        <DiceRollButton roll_value={0} mini_text="HIT DICE MAXIMUM" large_text="ROLLED" button_text="ROLL"/>
-                        <DiceRollButton roll_value={0} mini_text="HIT DICE MAXIMUM" large_text="ROLLED" button_text="ROLL"/>
+                        <DiceRollButton property_name="extra_dice_1"/>
+                        <DiceRollButton property_name="extra_dice_2"/>
 
                     </div>
                 </div>
