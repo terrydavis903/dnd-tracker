@@ -26,7 +26,6 @@ export function StatModal(props){
         setStatModalValue("");
     }
     
-
     return (
         <div className='w-full h-full absolute top-0 left-0 z-10'>
             <XMarkIcon className='w-6 h-6 absolute top-0 right-0' onClick={closeModal}/>
@@ -39,6 +38,7 @@ export function StatModal(props){
 
                     <input
                         value={statValue}
+                        onChange={(e) => {setStatValue(e.target.value)}}
                         type="number"
                         className='w-20'
                     ></input>

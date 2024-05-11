@@ -54,50 +54,6 @@ export function StaticStatButtonUpper(props){
     )
 }
 
-export function DeathDoorButton(props){
-
-    const {setStatModalValue} = useContext(StatModalCtx);
-    const {player} = useContext(PlayerCtx);
-    
-    function openModal() {
-        setStatModalValue("deaths_door")
-    }
-
-    return (
-        <div className='w-full h-full z-0'>
-            <button
-                        onClick={openModal}
-                        className="text-sm font-medium text-white w-full h-full border-2"
-                    >
-                        <div className='bg-gray-600 text-xxl w-full h-20 border-2'>{player.stats.deaths_door}</div>
-                        <div className='bg-gray-600 w-full h-6 border-2'>Deaths Door</div>
-                    </button>
-        </div>
-    )
-}
-
-export function DeathSaveButton(props){
-
-    const {setStatModalValue} = useContext(StatModalCtx);
-    const {player} = useContext(PlayerCtx);
-    
-    function openModal() {
-        setStatModalValue("deaths_save")
-    }
-
-    return (
-        <div className='w-full h-full z-0'>
-            <button
-                        onClick={openModal}
-                        className="text-sm font-medium text-white w-full h-full border-2"
-                    >
-                        <div className='bg-gray-600 text-xxl w-full h-20 border-2'>{player.stats.deaths_save}</div>
-                        <div className='bg-gray-600 w-full h-6 border-2'>Death Save</div>
-                    </button>
-        </div>
-    )
-}
-
 export function AccuracyButton(props){
 
     const {setStatModalValue} = useContext(StatModalCtx);

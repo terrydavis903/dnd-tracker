@@ -8,6 +8,7 @@ import PlayerCtx from "../_contexts/PlayerCtx";
 import StatModalCtx from '_contexts/StatModalCtx';
 import ItemModalCtx from '_contexts/ItemModalCtx';
 import DiceRollCtx from '_contexts/DiceRollCtx';
+import RawFieldCtx from '_contexts/RawFieldCtx';
 
 function MyApp({ Component, pageProps }) {
 
@@ -15,6 +16,7 @@ function MyApp({ Component, pageProps }) {
 
   const [itemModalValue, setItemModalValue] = useState(false);
   const [statModalValue, setStatModalValue] = useState(false);
+  const [rawFieldValue, setRawFieldValue] = useState(false);
 
   const [characterList, setCharacterList] = useState();
   const [monsterList, setMonsterList] = useState();
@@ -40,19 +42,21 @@ function MyApp({ Component, pageProps }) {
   },[])
 
   return(
-    <DiceRollCtx.Provider value={{diceRoll, setDiceRoll}}>
-      <StatModalCtx.Provider value={{statModalValue, setStatModalValue}}>
-        <ItemModalCtx.Provider value={{itemModalValue, setItemModalValue}}>
-          <PlayerCtx.Provider value={{player, setPlayer}}>
-            <MonsterListCtx.Provider value={{monsterList, setMonsterList}}>
-              <CharactersCtx.Provider value={{characterList, setCharacterList}}>
-                <Component {...pageProps} />
-              </CharactersCtx.Provider>
-            </MonsterListCtx.Provider>
-          </PlayerCtx.Provider>
-        </ItemModalCtx.Provider>
-      </StatModalCtx.Provider>
-    </DiceRollCtx.Provider>
+    <RawFieldCtx.Provider value={{rawFieldValue, setRawFieldValue}}>
+      <DiceRollCtx.Provider value={{diceRoll, setDiceRoll}}>
+        <StatModalCtx.Provider value={{statModalValue, setStatModalValue}}>
+          <ItemModalCtx.Provider value={{itemModalValue, setItemModalValue}}>
+            <PlayerCtx.Provider value={{player, setPlayer}}>
+              <MonsterListCtx.Provider value={{monsterList, setMonsterList}}>
+                <CharactersCtx.Provider value={{characterList, setCharacterList}}>
+                  <Component {...pageProps} />
+                </CharactersCtx.Provider>
+              </MonsterListCtx.Provider>
+            </PlayerCtx.Provider>
+          </ItemModalCtx.Provider>
+        </StatModalCtx.Provider>
+      </DiceRollCtx.Provider>
+    </RawFieldCtx.Provider>
   )
 }
 

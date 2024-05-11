@@ -10,8 +10,6 @@ import PlayerCtx from '_contexts/PlayerCtx';
 // base
 
 export function HPButton(props){
-
-
     return (
         <div className="px-2 flex flex-col place-items-center">
             <div className="bg-gray-400 w-60">

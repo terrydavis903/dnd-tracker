@@ -15,6 +15,9 @@ export class Character{
 
         passive_1_in = "",
         passive_2_in = "",
+
+        deaths_door = 0,
+        deaths_save = 0,
     ){
         this.name = name_in;
         this.race = race_in;
@@ -27,6 +30,9 @@ export class Character{
 
         this.passive_1 = passive_1_in;
         this.passive_2 = passive_2_in;
+
+        this.deaths_door = deaths_door;
+        this.deaths_save = deaths_save;
         
         this.stats = new Stats();
         this.stats.jsonLoad(stats_in);

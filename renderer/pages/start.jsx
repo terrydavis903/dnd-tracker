@@ -1,16 +1,20 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import CharactersCtx from "../_contexts/CharactersCtx";
 import MonstersCtx from "../_contexts/MonstersCtx";
 
 import PlayerCtx from "../_contexts/PlayerCtx";
-import ItemDisplayList from "_components/item_list";
+import ItemDisplayList from "_components/lists/item_list";
 import { BonusStatButton, StatModal } from "_components/modals/stat_edit";
 import { HPButton } from "_components/_buttons/hp_button";
 import { DiceRollButton } from "_components/_buttons/dice_roll_button";
-import { DeathSaveButton, StaticStatButtonLower, StaticStatButtonUpper } from "_components/_buttons/stat_button";
+import { AccuracyButton, DeathSaveButton, StaticStatButtonLower, StaticStatButtonUpper } from "_components/_buttons/stat_button";
+import { PassiveButton } from "_components/_buttons/passive_button";
 
 export default function StartPage(){
+
+    let [useAccuracy, setUseAccuracy] = useState(true);
+
     const {characterList} = useContext(CharactersCtx);
     const {monsterList} = useContext(MonstersCtx);
 
@@ -87,12 +91,15 @@ export default function StartPage(){
                     {/* treasure and usables */}
                     <div className="border-2 w-full h-2/3 flex flex-row">
                         <div className="border-2 w-5/8">
+                            {/* treasure */}
                             <ItemDisplayList></ItemDisplayList>
                         </div>
                         <div className="w-3/8 h-full border-2">
+                            {/* extras */}
                             <div className="h-1/3 w-full border-2 ">
                                 <ItemDisplayList></ItemDisplayList>
                             </div>
+                            {/* utility */}
                             <div className="border-2 border-red-200">
                                 <ItemDisplayList></ItemDisplayList>
                             </div>
@@ -129,7 +136,6 @@ export default function StartPage(){
                         </div>
                     </div>
 
-
                     {/* armor */}
                     <div className="w-30">
                         <div>{player.stats.armor}</div>
@@ -148,14 +154,36 @@ export default function StartPage(){
 
                     {/* deaths door, extra rolls, accuracy, etc */}
                     <div className="flex flex-row">
-                        <DeathDoorButton/>
-                        <DeathSaveButton/>
+                        <PassiveButton property_name="deaths_door"/>
+                        <PassiveButton property_name="deaths_save"/>
 
                         <DiceRollButton property_name="extra_dice_1"/>
                         <DiceRollButton property_name="extra_dice_2"/>
 
+                        <AccuracyButton/>
+
+                        <PassiveButton property_name="passive_1"/>
+                        <PassiveButton property_name="passive_2"/>
+                        
                     </div>
+
+                    {/* use accuracy */}
+                    <div className="flex flex-row">
+                        {
+                            useAccuracy ? 
+                            <div onClick={()=>{setUseAccuracy(false)}} className="bg-red-700 text-gray-800">Turn OFF Accuracy</div>:
+                            <div onClick={()=>{setUseAccuracy(true)}} className="bg-green-700 text-gray-800">Turn ON Accuracy</div>
+                        }
+                    </div>
+
+                    {/* equipment and abilities */}
+                    <div className="flex flex-row w-full gap-1">
+                        <ItemDisplayList></ItemDisplayList>
+                        
+                    </div>
+
                 </div>
+
                 {/* right bar */}
                 <div className="border-2 w-1/6">
                     

@@ -13,8 +13,6 @@ export class Stats{
         armor_in = 0,
         gold_in = 0,
         dice_in = 0,
-        deaths_door = 0,
-        deaths_save = 0,
     ){
         this.max_hp = max_hp_in;
         this.current_hp = max_hp_in;
@@ -35,10 +33,6 @@ export class Stats{
 
         this.extra_dice_1 = 0;
         this.extra_dice_2 = 0;
-
-
-        this.deaths_door = deaths_door;
-        this.deaths_save = deaths_save;
     }
 
     //////////////////////////////////////////
